@@ -1,0 +1,78 @@
+@charset "EUC-KR";
+
+.container{
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+   grid-template-rows: 100px 1fr 100px;
+   grid-template-areas:
+    "header header header"
+    "aside2 section section"
+    "footer footer footer";
+  height: 100vh;
+  grid-gap: 10px;
+}
+
+
+a {
+	
+	text-decoration: none;
+	color: black;	
+}
+
+li{
+	
+  padding: 5px 5px 20px 20px;
+}
+
+.header{
+  background: skyblue;
+  grid-area:header;
+}
+
+
+.aside2 {
+	
+  background: beige;
+  grid-area:aside2;
+}
+
+td{
+	text-align:center;
+}
+
+aside{
+	text-align:center;
+	right:20%;
+	top:20%;
+	border: 2px solid black;
+	position:fixed;
+	height:300px;
+	width:300px;
+	
+}
+
+.section {
+
+  background:"";
+  grid-area:section;
+}
+
+.footer{
+  background: skyblue;
+  grid-area:footer;
+}
+
+.text{
+  border: 1px solid #777;
+  overflow: auto;
+  padding: 12px;
+  margin: 8px;
+  height: 100px;
+  font-size: 12px;
+}
+  
+
+
+
+
+
