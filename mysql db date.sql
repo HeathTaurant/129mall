@@ -130,5 +130,13 @@ create table Recently_products(
 mem_userid varchar(50),
 it_id int(11));
 
+-- 2021-04-27 3시 48분 하진영 테이블 수정완료--
+use 129mal;
 
+alter table cart change prive price int;
+alter table cart change de_prive de_price int;
+alter table order_detail change order_detail_id order_id int;
+alter table order_detail drop column cor_id;
+alter table orderlist change or_id order_id int;
+alter table orderlist drop column order_detail_id;
 
