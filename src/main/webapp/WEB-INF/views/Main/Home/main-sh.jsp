@@ -6,9 +6,9 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../../../Css/Main/Home/common.css" />
+    <link rel="stylesheet" href="../../../../resources/Css/Main/Home/common.css" />
     <link rel="icon" type="image/png" href="imgs/logo.png" />
-    <script src="../../../Js/Main/Home/main.js" defer></script>
+    <script src="../../../../resources/Js/Main/Home/main.js" defer></script>
     <title>메인 페이지</title>
   </head>
   <body>

@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../../Css/Main/Home/slide_style.css" />
-    <script src="../../../Js/Main/Home/slide_script.js" defer></script>
+    <link rel="stylesheet" href="../../../../resources/Css/Main/Home/slide_style.css" />
+    <script src="../../../../resources/Js/Main/Home/slide_script.js" defer></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
@@ -19,19 +19,19 @@
       <div class="container">
         <div class="slides">
           <div class="slide">
-            <img src="../../../Img/Main/Home/3.jpg" alt="" />
+            <img src="../../../../resources/Img/Main/Home/3.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../../../Img/Main/Home/1.jpg" alt="" />
+            <img src="../../../../resources/Img/Main/Home/1.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../../../Img/Main/Home/2.jpg" alt="" />
+            <img src="../../../../resources/Img/Main/Home/2.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../../../Img/Main/Home/3.jpg" alt="" />
+            <img src="../../../../resources/Img/Main/Home/3.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../../../Img/Main/Home/1.jpg" alt="" />
+            <img src="../../../../resources/Img/Main/Home/1.jpg" alt="" />
           </div>
         </div>
       </div>
