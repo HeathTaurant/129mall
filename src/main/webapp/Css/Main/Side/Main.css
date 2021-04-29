@@ -14,25 +14,25 @@
 }
 
 
-.Header {
+.Main.container .Header {
   grid-area: Header;
 }
 
 
-.Leftaside {
+.Main.container .Leftaside {
   grid-area: Leftaside;
 }
 
-.Section{
+.Main.container .Section{
   grid-area: Section;
 }
 
-.Rightaside {
+.Main.container .Rightaside {
   grid-area: Rightaside
 }
 
 
-.Footer{
+.Main.container .Footer{
   grid-area: Footer;
 }
 
