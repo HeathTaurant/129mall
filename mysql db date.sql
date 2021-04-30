@@ -1,4 +1,4 @@
-use 129mall;
+order_detailuse 129mall;
 
 create table member(
 mem_id int(11) primary key AUTO_INCREMENT not null,
@@ -140,3 +140,6 @@ alter table order_detail drop column cor_id;
 alter table orderlist change or_id order_id int;
 alter table orderlist drop column order_detail_id;
 
+-- 2021-04-29 20시 48분 하진영 테이블 수정완료--
+alter table order_detail add column it_name int after it_id;
+alter table Cart add column it_name int after it_id;

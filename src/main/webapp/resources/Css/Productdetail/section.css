@@ -23,7 +23,7 @@ em{
   grid-auto-rows:100px 1fr 100px;
   grid-template-areas:
     "header     header    header       header"
-    "asideleft section payment-options asideright"
+    "Leftaside section payment-options Rightaside"
     "footer    footer     footer     footer";
     height:100vh;
     grid-gap:5px;

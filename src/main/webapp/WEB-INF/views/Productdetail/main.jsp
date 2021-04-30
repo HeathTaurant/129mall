@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -10,27 +12,37 @@
 <script src="https://kit.fontawesome.com/6ba428731d.js"
 	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../Css/Productdetail/asideMid.css">
-<link rel="stylesheet" type="text/css" href="../../Css/Productdetail/section.css">
-
-
-
+<link rel="stylesheet" type="text/css"
+	href="../../../resources/Css/Productdetail/asideMid.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../resources/Css/Productdetail/section.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../resources/Css/Main/Side/Leftaside.css">
+<link rel="stylesheet" type="text/css"
+	href="../../../resources/Css/Main/Side/Rightaside.css">
 
 
 <title>Insert title here</title>
 </head>
 <body>
+	<%-- 	<jsp:useBean id="item"
+		class="com.musun129.shopMall.Dto.Order_detailDto">
+		<jsp:setProperty name="buyItem" property="*" />
+	</jsp:useBean> --%>
+	<!-- 		<div class="header">header</div> -->
 
 	<div class="container">
-		<div class="header">header</div>
-		<div class="asideleft">
-			<ul>
-				<li><a href="#">MEN</a> <a href="#">WOMAN</a> <a href="#">KIDS</a>
-					<a href="#">SHOES</a> <a href="#">ACC</a> <a href="#">OUTLET</a> <a
-					href="#">PROMOTION</a> <a href="#">#STYLE IN SNS</a> <a href="#">DISCOVERY</a>
-				</li>
-			</ul>
+
+		<div class="Leftaside">
+			<jsp:include page="../Main/Side/Leftaside.jsp" flush="false" />
+
 		</div>
+
+		<div class="Rightaside">
+			<jsp:include page="../Main/Side/Rightaside.jsp" flush="false" />
+		</div>
+
+
 
 		<div class="section">
 			<div class="section__imgs">
@@ -134,7 +146,8 @@
 			</div>
 			<div class="product__review">
 				<div class="product__review--top">
-					<strong class="product__review-total">TOTAL</strong> <em>118</em><p>별이미지</p>
+					<strong class="product__review-total">TOTAL</strong> <em>118</em>
+					<p>별이미지</p>
 				</div>
 			</div>
 			<div class=product__review--mid>
@@ -145,13 +158,13 @@
 					<li>최근등록순</li>
 				</ul>
 				<div>
-				  <ul class="review-list">
+					<ul class="review-list">
 						<li>리뷰1</li>
 						<li>리뷰2</li>
 						<li>리뷰3</li>
 						<li>리뷰4</li>
 						<li>리뷰5</li>
-				  </ul>
+					</ul>
 				</div>
 				<div class=pages>1 2 3 4 5</div>
 			</div>
@@ -294,12 +307,13 @@
 
 
 		<div class="payment-options">
+
 			<div class="payment-options--toMakeFixed">
 				<div class="payment-option-top">
 					<ul>
-						<li class="pName" value="${pName}">덴버(DENVER) 맨투맨</li>
-						<li class="pCode">DXMT33111-MG (멜란지그레이) / 봄</li>
-						<li class="pPrice">판매가격 : 69,000원</li>
+						<li class="pName"><input type="hidden" name=it_name>덴버(DENVER) 맨투맨</li>
+						<li class="pCode">><input type="hidden" name=it_id>DXMT33111-MG (멜란지그레이) / 봄</li>
+						<li class="pPrice"><input type="hidden" name=it_price value=69,000>판매가격 : 69,000원</li>
 						<br>
 						<li><i class="fas fa-won-sign"></i> 예상마일리지 : 3,450 (5%)</li>
 						<li><i class="fas fa-ticket-alt"></i> 신규 가입시 5천원 할인쿠폰</li>
@@ -312,23 +326,24 @@
 					<ul>
 						<li class="payment-option-color"><em>색상</em>
 							<div>
-								<a href="#"><img class="color-btn-1" 
+								<a href="#" ><img class="color-btn-1" name="it_color"
 									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/38x51"
-									alt="bk"></a> <a href="#"><img 
+									alt="bk"></a> <a href="#"><img name="it_color"
 									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-MG-26108338927749021.png/dims/resize/38x51"
-									alt="mg" class="color-btn-2" ></a> <a href="#"><img class="color-btn-3"
+									alt="mg" class="color-btn-2"></a> <a href="#"><img name="it_color"
+									class="color-btn-3"  
 									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-NY-26108340314701882.png/dims/resize/38x51"
-									alt="ny"></a> <a href="#"><img class="color-btn-4"
+									alt="ny"></a> <a href="#"><img class="color-btn-4" name="it_color"
 									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-PK-26108342383764510.png/dims/resize/38x51"
 									alt="pk"></a>
-							</div>
-							</li>
+							</div></li>
 						<li class="payment-option-size"><em>사이즈</em>
 							<div class="btn_size">
-								<input type="radio" name=size value=90 checked="checked"> <span>90</span>
-								<input type="radio" name=size value=95> <span>95</span>
-								<input type="radio" name=size value=100> <span>100</span>
-								<input type="radio" name=size value=105> <span>105</span>
+								<input type="radio" name=size value=90 checked="checked" name=it_size>
+								<span>90</span> <input type="radio" name=size value=95>
+								<span>95</span> <input type="radio" name=size value=100>
+								<span>100</span> <input type="radio" name=size value=105>
+								<span>105</span>
 							</div></li>
 
 						<li class="payment-option-quantity"><em>수량</em>
@@ -337,7 +352,7 @@
 									<i class="fas fa-minus"></i>
 								</button>
 								<input type="number" class="changeQty-num" value="1" size="5"
-									min="1" max="9999" width="20">
+									min="1" max="9999" width="20" name="order_detail_count">
 								<button type="button" class="changeQty-plus">
 									<i class="fas fa-plus"></i>
 								</button>
@@ -345,40 +360,38 @@
 
 						<li class="payment-option-delivery"><em>배송</em>
 							<div>
-								<form>
-									<input type="radio" id="deliver1" name="deliver"
-										value="deliver" checked="checked"> <label
-										for="deliver1">택배(무료배송)</label> <input type="radio"
-										id="deliver2" name="deliver" value="pickUp"> <label
-										for="deliver2">매장픽업</label>
-								</form>
+								<input type="radio" id="deliver1" name="deliver" value="deliver"
+									checked="checked"> <label for="deliver1">택배(무료배송)</label>
+								<input type="radio" id="deliver2" name="deliver" value="pickUp">
+								<label for="deliver2">매장픽업</label>
 							</div></li>
 
 					</ul>
 					<div class="payment-option-bottom">
 						<div class="buynow_btn">
-							<a href="#">buynow</a>
+							<a href="/buyNow">buynow</a>
 						</div>
+
 						<div class=nPay_btn>
-							<a class="addTocart" href="#">add to Cart Npay</a> <a
+							<a class="addTocart" href="/addToCart">add to Cart Npay</a> <a
 								class="Npay_btn" href="#">N Pay</a>
 						</div>
 						<div class="btn_go_review">
 							<a href="#"> 상품리뷰(119)</a>
 						</div>
-
 					</div>
 				</div>
-
 			</div>
 		</div>
-		<div class="asideright">aside</div>
-
 		<div class="footer">footer</div>
 	</div>
-	<script type="text/javascript" src="../../Js/Productdetail/multy-Slide.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/quantity-btn.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/color-btn.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/review-nav-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/multy-Slide.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/quantity-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/color-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/review-nav-btn.js"></script>
 </body>
 </html>

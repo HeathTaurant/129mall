@@ -68,3 +68,8 @@
   font-size:150%;
   text-align:center;
 }
+
+.Rightaside{
+	grid-area:Rightaside;
+	
+}

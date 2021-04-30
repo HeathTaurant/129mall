@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="mypage.css"/>
-</head>
+<!-- <link rel="stylesheet" href="mypage.css"/>
+ --></head>
 <body>
 
   <div class="container">

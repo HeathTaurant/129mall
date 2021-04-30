@@ -33,4 +33,8 @@ display:none;
 
 .Left.containeru a:hover{/*마우스 오버시*/
 	color: black;	/*오버시 색상*/
-	} 
+	}
+	
+.Leftaside{
+	grid-area:Leftaside;
+}
