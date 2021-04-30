@@ -103,7 +103,7 @@ qna_admin_id varchar(50));
 create table q_board(
 q_borard_id int(4),
 q_board_title varchar(50),
-q_board_hit int(5),
+q_board_hit int(5),2
 q_board_date datetime,
 q_board_content varchar(10000),
 q_board_available int(4),
@@ -140,3 +140,6 @@ alter table order_detail drop column cor_id;
 alter table orderlist change or_id order_id int;
 alter table orderlist drop column order_detail_id;
 
+alter table order_detail add column it_name int after it_id;
+alter table Cart add column it_name int after it_id;
+select * from Cart;
