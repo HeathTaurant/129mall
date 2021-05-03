@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="../../Css/Join/memberJoinStyle.css">
+  <link rel="stylesheet" href="/Css/Join/memberJoinStyle.css">
   <title>Insert title here</title>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="../../Js/Join/memberJoinJS.js"></script>
+  <script src= "/Js/Join/memberJoinJS.js" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
     $(function () {
@@ -84,7 +84,7 @@
       <div class="join">
         <div class="member_join">
           <h3>기본정보</h3>
-          <form id="joinForm" name="joinForm" action="" method="post" target="" enctype="">
+          <form name="joinForm" action="joinOk" method="post">
             <table>
               <colgroup>
                 <col style="width:150px;">
@@ -92,14 +92,14 @@
               </colgroup>
               <tr>
                 <th>아이디</th>
-                <td><input type="text" class="member_id" id="member_id" name="member_id" />
+                <td><input type="text" class="member_id" id="member_id" name="mem_userid" />
                   <input class="btn id_chk" type="button" value="아이디 중복확인" />
                 </td>
               </tr>
               <tr>
                 <th>비밀번호</th>
                 <td><input type="password" class="member_password" id="member_password"
-                    name="member_password" />&nbsp;<span id="txt">(영문 대소문자/숫자/특수문자 중 2가지
+                    name="mem_password" />&nbsp;<span id="txt">(영문 대소문자/숫자/특수문자 중 2가지
                     이상 조합, 8자~16자)</span>
                   <font id="chkpw"></font>
                 </td>
@@ -107,13 +107,13 @@
               <tr>
                 <th>비밀번호 확인</th>
                 <td><input type="password" class="member_password_chk" id="member_password_chk"
-                    name="member_password_chk" />
+                     />
                   <font id="samechk"></font>
                 </td>
               </tr>
               <tr>
                 <th>이름</th>
-                <td><input type="text" class="member_name" id="member_name" name="member_name" /></td>
+                <td><input type="text" class="member_name" id="member_name" name="mem_username" /></td>
               </tr>
               <tr>
                 <th>생년월일</th>
@@ -125,17 +125,24 @@
                   <input type="text" maxlength="2" class="birth_day" id="memberBirth_day" name="birth_day" />&nbsp; 일
                 </td>
               </tr>
+               <tr>
+                <th>성별</th>
+                <td>
+                  <input type="radio" name="mem_sex" value="0"  checked/>남&nbsp;
+                  <input type="radio" name="mem_sex" value="1" />여
+                </td>
+              </tr>
               <tr>
                 <th>주소</th>
                 <td>
                   <div> <input type="text" id="member_postcode" class="address member_postcode"
-                      name="member_postcode" />
+                      name="mem_postcode" />
                     <input type="button" class="btn postcode" placeholder="우편번호" value="우편번호"
                       onclick="DaumPostcode()" />
                   </div>
-                  <input type="text" id="member_addr1" class="address member_addr1" name="member_addr1"
+                  <input type="text" id="member_addr1" class="address member_addr1" name="mem_address1"
                     placeholder="기본주소" /> <br>
-                  <input type="text" id="member_addr2" class="address member_addr2" name="member_addr2"
+                  <input type="text" id="member_addr2" class="address member_addr2" name="mem_address2"
                     placeholder="상세주소" />
                 </td>
               </tr>
@@ -150,14 +157,14 @@
                     <option value="018">018</option>
                     <option value="019">019</option>
                   </select> -
-                  <input type="text" maxlength="4" class="mobile num2" id="member_num2" name="member_num2" /> -
-                  <input type="text" maxlength="4" class="mobile num3" id="member_num3" name="member_num3" />
+                  <input type="text" maxlength="4" class="mobile num2" id="member_num2" name="mem_num2" /> -
+                  <input type="text" maxlength="4" class="mobile num3" id="member_num3" name="mem_num3" />
                 </td>
               </tr>
               <tr>
                 <th>이메일</th>
                 <td>
-                  <input type="text" class="member_email" id="member_email" name="member_email" />
+                  <input type="text" class="member_email" id="member_email" name="mem_email" />
                   <font id="emailchk"></font>
                 </td>
               </tr>
