@@ -1,36 +1,137 @@
-@charset "UTF-8";
-
-.Left.container ul {
-   list-style:none;  /*글머리 삭제*/
-   padding: 0px;/*브라우저마다 다른 ul의 여백 기본값을 초기화*/
-   margin: 0px;/*브라우저마다 다른 ul의 여백 기본값을 초기화*/
-   padding-left:0px; /*앞에 공백 삭제*/
-  /*position:absolute; 주메뉴 절대위치 설정 */
-   }
-
-
-.Left.container li:hover{/*마우스 오버시*/
-	/*background-color:#FA58F4;/*리스트 배경 색*/	
+ul {
+  list-style: none;
 }
 
-
-.Left.container ul ul {/*부 메뉴 설정 */
-display:none;
+li.menu__inner {
+	transform: translateX(10%);
 }
 
-.Left.container ul a {
-	text-decoration:none; /*링크 밑줄 없어짐*/
-	color:black;	/*링크 색상*/	
-	display:block;	/*텍스트를 벗어나도 클릭해서 이동할수 있도록 한다. a 요소를 block 요소로 만든다 */
-	width: 80%;	/*블락 요소의 너비를 설정한다*/
+a {
+  text-decoration: none;
+  color: black;
 }
-	
 
-.Left.container ul li:hover > ul 
-{display:block;} /*주 메뉴에 마우스 오버했을 때 부 메뉴 표시하기*/
-.Left.container ul ul li:hover > ul 
-{display:block;}
+.accordion {
+  display: inline-block;
+  padding: 20px;
+  background: #e4e4e47e;
+  border-radius: 50px;
+  transition: all 600ms ease-in-out;
+  top: 40px;
+  position: fixed;
+}
 
-.Left.containeru a:hover{/*마우스 오버시*/
-	color: black;	/*오버시 색상*/
-	} 
+.navbar__logo img {
+  width: 150px;
+}
+
+.navbar__search {
+  text-align: center;
+  width: 300px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+}
+
+input[id*="answer"] {
+  display: none;
+}
+
+.menu__outer {
+  display: inline-block;
+  padding: 20px;
+  width: 300px;
+  /* border: 1px solid #232188; */
+  border-bottom: 0;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50px;
+}
+
+.menu__outer:hover {
+  background: #59a6ff7e;
+}
+
+.arrow-down {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  display: inline-block;
+  transition: all 300ms ease-in-out;
+  /* background: url("./img/arrow.png") 0 0 no-repeat; */
+}
+
+input[id*="answer"] + label + div {
+  width: 300px;
+  max-height: 0;
+  transition: all 300ms ease-in-out;
+  overflow: hidden;
+  background: #c2c2c200;
+  font-size: 11px;
+}
+
+li {
+  font-size: 20px;
+}
+
+/* input[id*="answer"] + label + div p {
+  display: inline-block;
+} */
+
+/* input[id*="answer"]:hover + label + div {
+  max-height: 300px;
+} */
+
+input[id*="answer"]:checked + label + div {
+  max-height: 300px;
+}
+
+input[id*="answer"]:checked + label > .arrow-down {
+  transform: rotate(180deg);
+}
+
+.navbar__cancelBtn {
+  position: absolute;
+  top: 32px;
+  right: 42px;
+  font-size: 30px;
+  display: none;
+}
+
+.navbar__toggleBtn {
+  position: absolute;
+  top: 32px;
+  left: 42px;
+  font-size: 30px;
+  display: none;
+}
+
+@media screen and (max-width: 1580px) {
+  .accordion {
+    transform: translateX(-110%);
+  }
+
+  .accordion.clicked {
+    transform: translateX(0%);
+  }
+
+  .navbar__cancelBtn {
+    display: block;
+  }
+
+  .navbar__cancelBtn.clicked {
+    display: none;
+  }
+
+  .navbar__toggleBtn {
+    display: block;
+  }
+
+  .navbar__toggleBtn.clicked {
+    display: none;
+  }
+}

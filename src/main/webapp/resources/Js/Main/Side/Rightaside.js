@@ -5,7 +5,7 @@ console.log(window.scrollY);
 
 
 document.addEventListener('scroll', () => {
-  if (window.scrollY > 500) {
+  if (window.scrollY > 300) {
     Topbtn.classList.add('visible');
   } else {
     Topbtn.classList.remove('visible');
