@@ -26,7 +26,13 @@ public class JoinService {
 		String year = request.getParameter("birth_year");
 		String month = request.getParameter("birth_month");
 		String day = request.getParameter("birth_day");
-		
+		if(day.length() != 2) {
+			day = "0"+day;
+		}
+		if(month.length() != 2) {
+			month = "0"+month;
+		}
+
 		String mem_phone = num1+"-"+num2+"-"+num3;
 		LocalDateTime mem_birthday = LocalDateTime.parse(year+"-"+month+"-"+day+"T00:00:00"); //파싱 String을 날짜형식으로 변환
 		LocalDateTime mem_register_datetime = LocalDateTime.now();

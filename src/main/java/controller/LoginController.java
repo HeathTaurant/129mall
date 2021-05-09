@@ -9,12 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import member.AutoInfo;
 import member.LoginService;
-import member.Message;
 import member.WrongIDPWException;
 @Controller
 public class LoginController {
@@ -23,6 +21,12 @@ public class LoginController {
 	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
 	}
+	
+	@RequestMapping("/Maintest")
+	public String Maintest() {
+		return "/Maintest";
+	}
+	
 	
 	@RequestMapping("/Login/loginMain")
 	public String LoginMain() {
@@ -39,23 +43,23 @@ public class LoginController {
 		return "/Login/findPw";
 	}
 	
-
 	@RequestMapping("/Login/loginOK")
-	public String loginOK(HttpServletRequest req, HttpSession session, HttpServletResponse response,ModelAndView mav) throws IOException {
+	public String loginOK(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws IOException {
 		try {
 			AutoInfo autoInfo = loginService.infochk(req);
 			session.setAttribute("autoInfo", autoInfo);
-			return "/Login/loginOK";
+			//return "/Login/loginOK";
+		    return "redirect:/Maintest"; //로그인 성공해서 Main으로 이동
 		}catch (WrongIDPWException e) {
-			// contentType을 먼저하지 않으면 한글이 깨질 수 있음
-//			response.setContentType("text/html; charseet=utf8");
-//			PrintWriter out = response.getWriter();
-//			out.print("<script language='javascript'> alter('Wrong ID or PW'); </script>");
-//			out.flush();
-			mav.addObject("data", new Message("Wrong ID or PW"));
-			mav.setViewName("Message");
-			return "/Login/loginMain";
+			//이 방법 쓰려면 매개변수 Model model 추가하기
+			response.setContentType("text/html; charset=UTF-8"); 
+			PrintWriter out = response.getWriter();
+		    out.println("<script>alert('아이디 혹은 비밀번호가 맞지 않습니다.');window.history.back();</script>");
+		   // out.flush();//예외 발생 원인 버퍼에있는거강제로 스트림으로 뿌림
+		   //return "redirect:/Login/loginMain";
+		   //이거 리다이렉트로 바꾸니까 POST http://localhost:9090/Login/loginOK net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 에러뜸
+
 		}
-		
+		return null;		
 	}
 }

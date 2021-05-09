@@ -76,4 +76,24 @@ public class MemberDao {
 		return results.isEmpty() ? null : results.get(0); //List가 비어있으면 null 비어있지 않으면 해당 객체
 	}
 	
+	//--2021-05-04
+	public String IdSearch(String mem_username,String mem_phone) {
+		String mem_userid = jdbcTemplate.queryForObject("select mem_userid from MEMBER where mem_username = ? && mem_phone = ?",
+				String.class,mem_username, mem_phone);
+		return mem_userid;
+	}
+
+	//--2021-05-09 아이디 중복체크
+	//org.springframework.dao.EmptyResultDataAccessException 결과 값이 없는 경우, 즉 0인경우에 발생하는 오류
+	// queryForObject를 쓸 때는 try~catch문과 함께 써줘야 된다고 한다.
+	public String ChkId(String id) {
+		try {
+		String mem_userid = jdbcTemplate.queryForObject(
+				"select mem_userid from member where mem_userid=?", 
+				String.class,id);
+			return mem_userid;
+		}catch(Exception e) {
+			return "";
+		}
+	}
 }

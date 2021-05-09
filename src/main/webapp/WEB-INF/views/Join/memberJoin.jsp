@@ -84,20 +84,21 @@
       <div class="join">
         <div class="member_join">
           <h3>기본정보</h3>
-          <form name="joinForm" action="joinOk" method="post">
+          <form name="joinForm" action="/Join/joinOk" method="post">
             <table>
               <colgroup>
                 <col style="width:150px;">
                 <col style="width:auto;">
               </colgroup>
               <tr>
-                <th>아이디</th>
-                <td><input type="text" class="member_id" id="member_id" name="mem_userid" />
-                  <input class="btn id_chk" type="button" value="아이디 중복확인" />
+                <th>아이디*</th>
+                <td><input type="text" class="member_id" id="member_id" name="mem_userid" onkeydown="inputIdChk()"/>
+                  <input class="btn id_chk" type="button" value="아이디 중복확인" onclick="openIdChk()" />
+                  <input type="hidden" name="idDuplication" value="idUncheck">
                 </td>
               </tr>
               <tr>
-                <th>비밀번호</th>
+                <th>비밀번호*</th>
                 <td><input type="password" class="member_password" id="member_password"
                     name="mem_password" />&nbsp;<span id="txt">(영문 대소문자/숫자/특수문자 중 2가지
                     이상 조합, 8자~16자)</span>
@@ -105,35 +106,55 @@
                 </td>
               </tr>
               <tr>
-                <th>비밀번호 확인</th>
+                <th>비밀번호 확인*</th>
                 <td><input type="password" class="member_password_chk" id="member_password_chk"
                      />
                   <font id="samechk"></font>
                 </td>
               </tr>
               <tr>
-                <th>이름</th>
+                <th>이름*</th>
                 <td><input type="text" class="member_name" id="member_name" name="mem_username" /></td>
               </tr>
               <tr>
-                <th>생년월일</th>
+                <th>생년월일*</th>
                 <td>
-                  <input type="text" maxlength="4" class="birth_year" id="memberBirth_year" name="birth_year" /> &nbsp;
-                  년
+                <select name="birth_year" class="birth_year" id="memberBirth_year">
+                    <option value="1988">1988</option>
+                    <option value="1989">1989</option>
+                    <option value="1990">1990</option>
+                    <option value="1991">1991</option>
+                    <option value="1992">1992</option>
+                    <option value="1993">1993</option>
+                    <option value="1994">1994</option>
+                    <option value="1995">1995</option>
+                    <option value="1996">1996</option>
+                    <option value="1997">1997</option>
+                    <option value="1998">1998</option>
+                    <option value="1999">1999</option>
+                    <option value="2000" selected>2000</option>
+                    <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                  </select>&nbsp; 년
                   <input type="text" maxlength="2" class="birth_month" id="memberBirth_month"
                     name="birth_month" />&nbsp; 월
                   <input type="text" maxlength="2" class="birth_day" id="memberBirth_day" name="birth_day" />&nbsp; 일
                 </td>
               </tr>
                <tr>
-                <th>성별</th>
+                <th>성별*</th>
                 <td>
                   <input type="radio" name="mem_sex" value="0"  checked/>남&nbsp;
                   <input type="radio" name="mem_sex" value="1" />여
                 </td>
               </tr>
               <tr>
-                <th>주소</th>
+                <th>주소*</th>
                 <td>
                   <div> <input type="text" id="member_postcode" class="address member_postcode"
                       name="mem_postcode" />
@@ -147,7 +168,7 @@
                 </td>
               </tr>
               <tr>
-                <th>휴대전화</th>
+                <th>휴대전화*</th>
                 <td>
                   <select name="num1" class="num1">
                     <option value="010">010</option>
@@ -162,7 +183,7 @@
                 </td>
               </tr>
               <tr>
-                <th>이메일</th>
+                <th>이메일*</th>
                 <td>
                   <input type="text" class="member_email" id="member_email" name="mem_email" />
                   <font id="emailchk"></font>
@@ -216,12 +237,12 @@
               </label>
             <div class="txt">
               <pre>
-<(주)쇼핑몰>('http://localhost'이하 '몰몰')은(는) 「개인정보 보호법」 제30조에 따라 정부주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+<(주)musun129>('http://localhost'이하 '129mall')은(는) 「개인정보 보호법」 제30조에 따라 정부주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
 
 ○ 이 개인정보처리방침은 2021년 1월 1부터 적용됩니다.
                 
 제1조(개인정보의 처리 목적)
-<(주)쇼핑몰>('http://localhost'이하 '몰몰')은(는) 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며 이용 목적이 변경되는 겨우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+<(주)musun129>('http://localhost'이하 '129mall')은(는) 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며 이용 목적이 변경되는 겨우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
 1. 홈페이지 회원가입 및 관리
 회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지, 만14세 미만 아동의 개인정보 처리 시 법정대리인의 동의여부 확인 목적으로 개인정보를 처리합니다.
               </pre>

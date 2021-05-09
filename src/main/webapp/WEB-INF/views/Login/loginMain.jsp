@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="../../../Css/Login/loginStyle.css">
   <title>Login Demo</title>
+
 </head>
 
 
@@ -24,11 +25,11 @@
                     <p class="text">카카오톡으로 바로 로그인 하기</p>
                     <div class="br"></div>
                     <a class="btn kakaologin" href="javascript:kakaoLogin();"><img class="kakao_login_img"
-                            src="kakao_login_large_narrow.png"></a>
+                            src="../../../Img/Login/kakao_login_large_narrow.png"></a>
                 </div>
                 <br>
                 <div class="hr-sect">또는</div><br>
-                <form name="memberlogin" action="loginOK" method="post">
+                <form name="memberlogin" action="/Login/loginOK" method="post">
 	                <div id="memberlogin">
 	                    <input type="text" id="member_id" name="mem_userid" placeholder="아이디">
 	                    <div class="br"></div>
@@ -37,7 +38,7 @@
 	                </div>
                 </form>
                 <div class="utilMenu">
-                    <a class="select_id" href="findId">아이디 찾기</a><a class="select_pw" href="findPw">비밀번호 찾기</a><a class="right" href="../Join/memberJoin">가입하기</a>
+                    <a class="select_id" href="findId">아이디 찾기</a><a class="select_pw" href="findPw">비밀번호 찾기</a><a class="right" href="/Join/memberJoin">가입하기</a>
                 </div>
             </div>
         </div>

@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
+import member.IdSearchService;
 import member.JoinService;
 import member.LoginService;
 import member.MemberDao;
+import member.MemberIdCheckService;
 
 @Configuration //1개이상의 빈 제공 클래스는 반드시 명시
 @EnableWebMvc // 자바설정용 어노테이션 빈 명시적 사용
@@ -43,6 +45,15 @@ public class memberConfig {
 		LoginService loginService = new LoginService();
 		loginService.setLoginService(memberDao());
 		return loginService;
+	}
+	@Bean
+	public IdSearchService idSearchService() {
+		return new IdSearchService(memberDao());
+	}
+	
+	@Bean
+	public MemberIdCheckService memberIdCheckService() {
+		return new MemberIdCheckService(memberDao());
 	}
 	
 }

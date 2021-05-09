@@ -56,16 +56,21 @@ function joinForm_check(){
     var birth_year = document.getElementById("memberBirth_year");
     var birth_month = document.getElementById("memberBirth_month");
     var birth_day = document.getElementById("memberBirth_day");
-   // var member_postcode = document.getElementById("member_postcode");
-   // var member_addr1 = document.getElementById("member_addr1");
-   // var member_addr2 = document.getElementById("member_addr2");
+    var member_postcode = document.getElementById("member_postcode");
+    var member_addr1 = document.getElementById("member_addr1");
+    var member_addr2 = document.getElementById("member_addr2");
     var member_num2 = document.getElementById("member_num2");
     var member_num3 = document.getElementById("member_num3");
     var member_email = document.getElementById("member_email");
     var chk_All = document.getElementById("chk_All");
     var chk_1 = document.getElementById("chk_1");
     var chk_2 = document.getElementById("chk_2");
-
+    var idDuplication = document.getElementsByName("idDuplication");
+    
+    if(idDuplication.value != "idCheck"){
+    	alert("아이디 중복체크를 해주세요");
+    	return false;
+    }
     if(!member_id.value){
         alert("아이디를 입력하세요");
         member_id.focus();
@@ -100,6 +105,22 @@ function joinForm_check(){
         alert("생일을 입력하세요");
         memberBirth_year.focus();
         return false;
+    }
+    if(isNaN(birth_month.value) && isNaN(birth_day.value)){
+    	alert("생일은 숫자만 입력가능합니다.");
+    	return false;
+    }
+    
+    if(!(parseInt(birth_month.value)<=12 && parseInt(birth_month.value)>=1) && !(parseInt(birth_day.value)<=31 && parseInt(birth_day.value)>=1)){
+    	  alert("생일을 올바르게 입력하세요");
+          memberBirth_year.focus();
+          return false;
+    }
+    
+    if(!member_postcode.value || !member_addr1.value || !member_addr2.value){
+    	alert("주소를 입력하세요");
+    	member_postcode.focus();
+    	return false;
     }
     
     if(!member_num2.value || !member_num3.value){
@@ -141,6 +162,7 @@ function joinForm_check(){
         console.log("통과");	 
     }
 
+    joinForm.submit(); //form 식별을 위한 name 
 }
 
 
@@ -159,9 +181,26 @@ function checkSelectAll(){
     }
   }
 
-    function selectAll(selectAll){
-      const checkboxes = document.getElementsByName('agreements');
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = selectAll.checked
-      })
-    }
+function selectAll(selectAll){
+   const checkboxes = document.getElementsByName('agreements');
+   checkboxes.forEach((checkbox) => {
+   checkbox.checked = selectAll.checked
+   })
+}
+
+//아이디 중복체크 화면 열기
+function openIdChk(){
+	window.name = "parentForm";
+	//window.open(url, name, specs, replace);
+	window.open("/Join/IdCheckForm","chkForm","width=500, height=300, resizable=no, scrollbars =no");
+	//스프링의 경우 컨트롤러에 페이지에대한 mvc설정해주고 리턴해주면 뜸
+	//컨트롤러 접근 없이 사용 가능한데 이경우는 src/main/webapp/WEB-INF/view/page.jsp형태인데 이경우는 spring에서 WEB-INF/view에서 찾도록 한 것인데,그 부분을 수정하여 사용할 수는 있음.
+	//헷갈리지않도록 그냥 컨트롤러에서 하자...^^
+}
+
+//다시 아이디 창이 새로운 아이디를 입력했을때 다시 중복체크
+function inputIdChk(){
+	document.joinForm.idDuplication.value="idUncheck";
+}
+    
+    
