@@ -8,11 +8,11 @@ public class LoginService {
 	public void setLoginService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-	public AutoInfo infochk(HttpServletRequest req) {
+	public Member infochk(HttpServletRequest req) {
 		String id = req.getParameter("mem_userid");
 		String pw = req.getParameter("mem_password");
 		
-		AutoInfo autoinfo = memberDao.InfoChk(id, pw);
+		Member autoinfo = memberDao.InfoChk(id, pw);
 		if(autoinfo == null) {
 			//해당 id 없음
 			throw new WrongIDPWException();
@@ -20,6 +20,8 @@ public class LoginService {
 			//비밀번호 틀림
 			throw new WrongIDPWException();
 		}
-		return new AutoInfo(autoinfo.getMem_id(), autoinfo.getMem_userid(), autoinfo.getMem_password(), autoinfo.getMem_username());
+		return new Member(autoinfo.getMem_userid(), autoinfo.getMem_email() ,autoinfo.getMem_password(), autoinfo.getMem_username(),
+				autoinfo.getMem_phone(),autoinfo.getMem_birthday(), autoinfo.getMem_sex(), autoinfo.getMem_postcode(),
+				autoinfo.getMem_address1(), autoinfo.getMem_address2(),autoinfo.getMem_register_datetime());
 	}
 }

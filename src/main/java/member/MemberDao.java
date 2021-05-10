@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -60,16 +61,25 @@ public class MemberDao {
 	//----2021-04-29
 	
 	//---2021-05-03 InfoChk
-	public AutoInfo InfoChk(String id, String pw) {
-		List<AutoInfo> results = jdbcTemplate.query(
-				"select mem_id,mem_userid,mem_password,mem_username from member where mem_userid = ?",
-				new RowMapper<AutoInfo>() {
+	public Member InfoChk(String id, String pw) {
+		List<Member> results = jdbcTemplate.query(
+				"select mem_userid,mem_email, mem_password, mem_username, mem_phone,mem_birthday, mem_sex, mem_postcode, mem_address1,mem_address2, mem_register_datetime from member where mem_userid = ?",
+				new RowMapper<Member>() {
 					@Override
-					public AutoInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+					public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
 						// TODO Auto-generated method stub
-						AutoInfo info = new AutoInfo(
-								rs.getInt("mem_id"), rs.getString("mem_userid"),
-								rs.getString("mem_password"), rs.getString("mem_username"));
+						Member info = new Member(
+								rs.getString("mem_userid"),
+								rs.getString("mem_email"),
+								rs.getString("mem_password"),
+								rs.getString("mem_username"),
+								rs.getString("mem_phone"),
+								rs.getTimestamp("mem_birthday").toLocalDateTime(),
+								rs.getInt("mem_sex"),
+								rs.getInt("mem_postcode"),
+								rs.getString("mem_address1"),
+								rs.getString("mem_address2"),
+								rs.getTimestamp("mem_register_datetime").toLocalDateTime());
 						return info;
 					}
 				}, id);

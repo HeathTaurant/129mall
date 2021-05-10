@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-import member.AutoInfo;
 import member.LoginService;
+import member.Member;
 import member.WrongIDPWException;
 @Controller
 public class LoginController {
@@ -46,7 +46,7 @@ public class LoginController {
 	@RequestMapping("/Login/loginOK")
 	public String loginOK(HttpServletRequest req, HttpSession session, HttpServletResponse response) throws IOException {
 		try {
-			AutoInfo autoInfo = loginService.infochk(req);
+			Member autoInfo = loginService.infochk(req);
 			session.setAttribute("autoInfo", autoInfo);
 			//return "/Login/loginOK";
 		    return "redirect:/Maintest"; //로그인 성공해서 Main으로 이동

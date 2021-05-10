@@ -1,6 +1,7 @@
 package member;
 
 //회원가입시 Request를 받아오기 위한 class
+//회원정보 세션
 public class MemberRequest {
 	private String mem_userid; //사용자 아이디
 	private String mem_email; //사용자 이메일
@@ -11,6 +12,18 @@ public class MemberRequest {
 	private String mem_address1; //사용자 상세주소1
 	private String mem_address2; //사용자 상세주소2
 
+	public MemberRequest(String mem_userid,String mem_email,String mem_password, String mem_username,
+			int mem_sex, int mem_postcode, String mem_address1, String mem_address2) {
+		this.mem_userid = mem_userid;
+		this.mem_email = mem_email;
+		this.mem_password = mem_password;
+		this.mem_username = mem_username;
+		this.mem_sex = mem_sex;
+		this.mem_postcode = mem_postcode;
+		this.mem_address1 = mem_address1;
+		this.mem_address2 = mem_address2;
+	}
+	
 	public String getMem_userid() {
 		return mem_userid;
 	}

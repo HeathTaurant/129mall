@@ -86,4 +86,9 @@ public class Member {
 	public LocalDateTime getMem_register_datetime() {
 		return mem_register_datetime;
 	}
+	
+	//암호 일치 여부 확인
+			public boolean matchPassword(String password) {
+				return this.mem_password.equals(password);
+			}
 }
