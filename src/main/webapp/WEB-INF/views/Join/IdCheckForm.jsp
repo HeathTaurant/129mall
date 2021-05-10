@@ -94,7 +94,8 @@
 	//사용하기 클릭시 부모창으로 값 전달
 	function sendCheckValue(){
 		//중복체크 결과인 innCheck값을 전달한다.
-		opener.document.joinForm.idDuplication.value="idCheck";
+		opener.document.joinForm.idDuplication.value = "idCheck";
+		//opener.document.getElementsbyName("idDuplication").value = "idCheck";
 		//회원가입 화면의 ID입력란에 값을 전달
 		opener.document.joinForm.mem_userid.value = document.getElementById("userId").value;
 		

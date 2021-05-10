@@ -94,7 +94,7 @@
                 <th>아이디*</th>
                 <td><input type="text" class="member_id" id="member_id" name="mem_userid" onkeydown="inputIdChk()"/>
                   <input class="btn id_chk" type="button" value="아이디 중복확인" onclick="openIdChk()" />
-                  <input type="hidden" name="idDuplication" value="idUncheck">
+                  <input type="hidden" name="idDuplication" id="idDuplication" value="idUncheck">
                 </td>
               </tr>
               <tr>

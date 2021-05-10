@@ -65,7 +65,7 @@ function joinForm_check(){
     var chk_All = document.getElementById("chk_All");
     var chk_1 = document.getElementById("chk_1");
     var chk_2 = document.getElementById("chk_2");
-    var idDuplication = document.getElementsByName("idDuplication");
+    var idDuplication = document.getElementById("idDuplication");
     
     if(idDuplication.value != "idCheck"){
     	alert("아이디 중복체크를 해주세요");
