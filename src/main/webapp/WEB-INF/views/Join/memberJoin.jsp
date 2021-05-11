@@ -7,10 +7,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="../../Css/Join/memberJoinStyle.css">
+  <link rel="stylesheet" href="../../../../resources/Css/Join/memberJoinStyle.css">
   <title>Insert title here</title>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="../../Js/Join/memberJoinJS.js"></script>
+  <script src="../../../../resources/Js/Join/memberJoinJS.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
     $(function () {

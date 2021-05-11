@@ -1,27 +1,14 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import controller.MainController;
-import controller.RegisterController;
-import spring.MemberRegisterService;
+import main.test;
 import survey.SurveyController;
 
 @Configuration
-public class ControllerConfig {
-
-	@Autowired
-	private MemberRegisterService memberRegSvc;
-
-	@Bean
-	public RegisterController registerController() {
-		RegisterController controller = new RegisterController();
-		controller.setMemberRegisterService(memberRegSvc);
-		return controller;
-	}
-	
+public class ControllerConfig {	
 	@Bean
 	public SurveyController surveyController() {
 		return new SurveyController();
@@ -31,4 +18,5 @@ public class ControllerConfig {
 	public MainController mainController() {
 		return new MainController();
 	}
+
 }

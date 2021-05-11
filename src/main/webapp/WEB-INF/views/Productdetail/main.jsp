@@ -10,8 +10,8 @@
 <script src="https://kit.fontawesome.com/6ba428731d.js"
 	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../../Css/Productdetail/asideMid.css">
-<link rel="stylesheet" type="text/css" href="../../Css/Productdetail/section.css">
+<link rel="stylesheet" type="text/css" href="../../../../resources/Css/Productdetail/asideMid.css">
+<link rel="stylesheet" type="text/css" href="../../../../resources/Css/Productdetail/section.css">
 
 
 
@@ -376,9 +376,9 @@
 
 		<div class="footer">footer</div>
 	</div>
-	<script type="text/javascript" src="../../Js/Productdetail/multy-Slide.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/quantity-btn.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/color-btn.js"></script>
-	<script type="text/javascript" src="../../Js/Productdetail/review-nav-btn.js"></script>
+	<script type="text/javascript" src="../../../../resources/Js/Productdetail/multy-Slide.js"></script>
+	<script type="text/javascript" src="../../../../resources/Js/Productdetail/quantity-btn.js"></script>
+	<script type="text/javascript" src="../../../../resources/Js/Productdetail/color-btn.js"></script>
+	<script type="text/javascript" src="../../../../resources/Js/Productdetail/review-nav-btn.js"></script>
 </body>
 </html>

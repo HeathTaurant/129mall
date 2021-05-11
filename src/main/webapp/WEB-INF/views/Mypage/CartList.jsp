@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="mypage.css"/>
+<link rel="stylesheet" href="../../../../resources/Css/Mypage/mypage.css"/>
 </head>
 <body>
 
@@ -93,7 +93,7 @@
        할인 금액 <br><br><br>
        총 주문 금액  35,500원
   
-  <form method="post" action="Pay.jsp">
+  <form method="post" action="Pay">
   <input type="submit" value="주문하기 " name="">
   
   </form>   	 

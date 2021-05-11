@@ -9,7 +9,7 @@ toggleBtn.addEventListener("click", () => {
 });
 
 cancelBtn.addEventListener("click", () => {
-  accordion.classList.remove("clicked");
+  accordion.classList.remove("clicked"); 
   cancelBtn.classList.add("clicked");
   toggleBtn.classList.remove("clicked");
 });
