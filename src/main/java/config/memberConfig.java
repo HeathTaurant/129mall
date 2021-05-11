@@ -10,6 +10,8 @@ import member.JoinService;
 import member.LoginService;
 import member.MemberDao;
 import member.MemberIdCheckService;
+import member.PwSearchService;
+import member.mailSendService;
 
 @Configuration //1개이상의 빈 제공 클래스는 반드시 명시
 @EnableWebMvc // 자바설정용 어노테이션 빈 명시적 사용
@@ -55,5 +57,17 @@ public class memberConfig {
 	public MemberIdCheckService memberIdCheckService() {
 		return new MemberIdCheckService(memberDao());
 	}
+	
+	@Bean
+	public PwSearchService pwSearchService() {
+		return new PwSearchService(memberDao());
+	}
+	
+	@Bean
+	public mailSendService mailSendService() {
+		return new mailSendService();
+	}
+
+	
 	
 }

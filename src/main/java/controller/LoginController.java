@@ -58,7 +58,6 @@ public class LoginController {
 		   // out.flush();//예외 발생 원인 버퍼에있는거강제로 스트림으로 뿌림
 		   //return "redirect:/Login/loginMain";
 		   //이거 리다이렉트로 바꾸니까 POST http://localhost:9090/Login/loginOK net::ERR_INCOMPLETE_CHUNKED_ENCODING 200 에러뜸
-
 		}
 		return null;		
 	}

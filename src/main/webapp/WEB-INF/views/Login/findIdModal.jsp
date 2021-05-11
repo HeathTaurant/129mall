@@ -10,9 +10,11 @@
 	<span class="close">&times;</span>
 		<h4>고객님의 아이디는  </h4>
 		<br>
-		<h2 id="id_value"></h2>
+		<h3 id="id_value" style="text-align:center" ></h3>
 		<br>
-		<button type="button" id="findpw_btn" class="btn" onclick="location.href='/Login/findPw'">
+		<div style="display:flex;justify-content:center;align-items:center;">
+		<button style="" type="button" id="findpw_btn" class="btn" onclick="location.href='/Login/findPw'">
 		<i class="fa fa-envelope"></i>비밀번호 찾기</button>
+		</div>
 </div>
 </div>

@@ -114,6 +114,7 @@
                         </div>
                         <div class="btn ok">
                             <input type="button" id="searchBtn" value="ID찾기" onclick="idSerch_Click()"/>
+                            <input type="button" id="Main" value="메인으로" onclick="location.href='/Maintest'"/>
                         </div>
                         </form>
                     </div>

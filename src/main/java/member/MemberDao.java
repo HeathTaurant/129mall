@@ -106,4 +106,20 @@ public class MemberDao {
 			return "";
 		}
 	}
+	
+	//--2021-05-10 ID와 Email이 동일한 회원이 있는지 확인
+	public boolean SerchIdEmail(String id, String email) {
+		try {
+			jdbcTemplate.queryForObject(
+					"select mem_id from member where mem_userid=? && mem_email=?",Integer.class,id,email);
+				return true;
+			}catch(Exception e) { // 값이 없는경우 false리턴
+				return false;
+			}
+	}
+	//--2021-05-10 임시 비밀번호 발급 후 비밀번호 변경
+	public void setPw(String id, String pw) {
+			jdbcTemplate.update(
+					"update member set mem_password = ? where mem_userid = ? ",pw,id);
+	}
 }
