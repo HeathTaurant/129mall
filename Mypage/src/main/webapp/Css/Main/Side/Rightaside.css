@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.Right.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap:nowrap;
+  align-items: center;
+  height:100vh;
+  
+  
+}
+
+.Topbtn {
+  position: fixed;
+  bottom: 200px;
+  right: 50px;
+  color: white;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in;
+  cursor:pointer;
+}
+
+.Topbtn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+.Right.container .container1{
+ display: flex;
+ flex-direction: column;
+ flex-grow:1;
+ 
+ justify-content:space-around;
+  
+}
+
+.Right.container .container2{
+  flex-grow:6;
+}
+.Right.container .container3{
+   flex-grow:1;
+}
+
+.Right.container item.item4 {
+  
+  
+}
+
+.Right.container .container1 .item{
+  border: 1px solid black;
+  width:40px;
+  height: 20px;
+  background:#ffebee;
+  text-align:center;
+  font-size:100%;
+}
+.Right.container .container1 i {
+  color:#212121;
+}
+
+.Right.container .item4{
+  width:150px;
+  height:20px;
+  font-size:150%;
+  text-align:center;
+}

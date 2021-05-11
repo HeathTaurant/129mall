@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.Main.container {
+  display: grid;
+  grid-template-columns: 50px 1fr 200px;
+  grid-template-rows: 200px 1fr 200px;
+  grid-template-areas:
+    "Header Header Header"
+    "Leftaside Section Rightaside"
+    "Footer Footer Footer";
+  height: 100vh;
+  grid-gap: 50px;
+  
+}
+
+
+.Header {
+  grid-area: Header;
+}
+
+
+.Leftaside {
+  grid-area: Leftaside;
+}
+
+.Section{
+  grid-area: Section;
+}
+
+.Rightaside {
+  grid-area: Rightaside
+}
+
+
+.Footer{
+  grid-area: Footer;
+}
+
