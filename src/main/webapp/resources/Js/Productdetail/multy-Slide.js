@@ -1,4 +1,4 @@
-
+const payment = document.querySelector('.payment-options');
 
 var slides = document.querySelector('.slides'),
     slide= document.querySelectorAll('.slides li'),
@@ -29,4 +29,12 @@ prevBtn.addEventListener('click',function(){
     moveSlide(slideCount-5);
   }
 });
+
+document.addEventListener('scroll', () => {
+	  if (window.scrollY > 10000) {
+		 payment.classList.remove('visible');
+	  } else {
+		 payment.classList.add('visible');
+	  }
+	});
 

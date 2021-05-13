@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="../../../../resources/Css/Login/findPwStyle.css" />
-<title>findId</title>
+<link rel="stylesheet" href="../../../resources/Css/Login/findPwStyle.css" />
+<title>findPw</title>
 </head>
 
 <body>
@@ -17,48 +17,39 @@
         <div class="section">
             <div class="FindContainer">
                 <h2>Find PW</h2>
-                <p>이름과 아이디, 휴대폰번호로 임시 비밀번호를 발급받을 수 있습니다.</p>
+                <p>아이디와 이메일로 임시 비밀번호를 발급받을 수 있습니다.</p>
                 <hr>
                 <div class="content">
                     <div class="center">
+                      <form id="pwFindForm" action="/user/userPwSearch" method="post">
                         <div class="find">
                             <div class="find_pw">
                                 <table>
                                     <colgroup>
                                         <col style="width:120px;">
                                         <col style="width:220px;">
-                                    </colgroup>
-                                    <tr>
-                                        <td>
-                                            <p class="txt">이름</p>
-                                        </td>
-                                        <td><input type="text" class="member member_name"></td>
-                                    </tr>
                                     <tr>
                                         <td>
                                             <p class="txt">아이디</p>
                                         </td>
-                                        <td><input type="text" class="member member_id"></td>
+                                        <td><input type="text" class="member member_id" name="mem_userid" placeholder="회원가입한 아이디 입력" /></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p class="txt">핸드폰번호</p>
+                                            <p class="txt">이메일</p>
                                         </td>
                                         <td>
-                                            <input type="text" style="width: 40px;" maxlength="3" class="mobile num1"
-                                                name="member_num1" /> -
-                                            <input type="text" style="width: 60px;" maxlength="4" class="mobile num2"
-                                                name="member_num2" /> -
-                                            <input type="text" style="width: 60px;" maxlength="4" class="mobile num3"
-                                                name="member_num3" />
+                                            <input type="text" id="mem_email" name="mem_email" placeholder="회원가입한 이메일주소 입력" />
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                         <div class="btn ok">
-                            <input type="button" value="확인" onclick="" />
+                            <input type="submit" value="PW찾기" id="searchBtn"/>
+                            <input type="button" id="Main" value="메인으로" onclick="location.href='/Maintest'"/>
                         </div>
+                        </form>
                     </div>
                 </div>
                 <hr>

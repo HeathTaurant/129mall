@@ -9,22 +9,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc
-public class MvcConfig implements WebMvcConfigurer {
-
+public class MvcConfig implements WebMvcConfigurer{
 	@Override
-	public void configureDefaultServletHandling(
-			DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer confiurer) {
+		confiurer.enable();
 	}
-
+	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		registry.jsp("/WEB-INF/views/", ".jsp");
+		registry.jsp("/WEB-INF/views/",".jsp");
 	}
-
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/main").setViewName("main");
+		registry.addViewController("/Maintest").setViewName("Maintest");
 	}
-
 }

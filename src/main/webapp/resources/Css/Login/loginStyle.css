@@ -1,41 +1,41 @@
 @charset "UTF-8";
 
-.container {
-  display: grid;
-  grid-template-columns: 20% 1fr 20%;
-  grid-template-rows: 10% 1fr 10%;
-  grid-template-areas:
-    "header header header"
-    "left section right"
-    "footer footer footer";
-  height: 100vh;
-  grid-gap: 10px;
-}
+/* .container { */
+/*   display: grid; */
+/*   grid-template-columns: 20% 1fr 20%; */
+/*   grid-template-rows: 10% 1fr 10%; */
+/*   grid-template-areas: */
+/*     "header header header" */
+/*     "left section right" */
+/*     "footer footer footer"; */
+/*   height: 100vh; */
+/*   grid-gap: 10px; */
+/* } */
 
 body {
   font-size: 14px;
   min-height: 600px;
 }
 
-.header {
-  grid-area: header;
-}
+/* .header { */
+/*   grid-area: header; */
+/* } */
 
-.left {
-  grid-area: left;
-}
+/* .left { */
+/*   grid-area: left; */
+/* } */
 
-.right {
-  grid-area: right;
-}
+/* .right { */
+/*   grid-area: right; */
+/* } */
 
-.footer {
-  grid-area: footer;
-}
+/* .footer { */
+/*   grid-area: footer; */
+/* } */
 
-div.section {
-  grid-area: section;
-}
+/* div.section { */
+/*   grid-area: section; */
+/* } */
 
 div.content {
   margin: 0 auto;

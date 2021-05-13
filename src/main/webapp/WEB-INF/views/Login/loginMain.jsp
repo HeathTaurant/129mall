@@ -6,50 +6,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="../../../../resources/Css/Login/loginStyle.css">
+  <link rel="stylesheet" type="text/css" href="../../../resources/Css/Main/Side/Main.css">
+  <link rel="stylesheet" href="../../../resources/Css/Login/loginStyle.css">
   <title>Login Demo</title>
+
 </head>
 
-<body>
-<div class="container">
-    <div class="header"></div>
-    <div class="left"></div>
-    <div class="right"></div>
+
+<div class="Main container">
+
+	<div class="Header">
+		<jsp:include page="../Main/Header_empty.jsp" flush="false" />
+		</div>
+
+
+		<div class="Leftaside">
+			<jsp:include page="../Main/Leftaside.jsp" flush="false" />
+	</div>
     <div class="section">
         <div class="content">
             <div class="margin">
-                <a href="../../Main/Side/Main">&lt; 뒤로가기</a> <!-- 홈 경로 작성 -->
+                <a href="javascript:history.back()">&lt; 뒤로가기</a> <!-- 홈 경로 작성 -->
                 <h2> 로그인 </h2>
                 <div id="kakaologin">
                     <p class="text">카카오톡으로 바로 로그인 하기</p>
                     <div class="br"></div>
-                    <a class="btn kakaologin" href="javascript:kakaoLogin();">
-                    <img class="kakao_login_img"
-                            src="../../../../resources/Img/Login/kakao_login_large_narrow.png"></a>
+                    <a class="btn kakaologin" href="javascript:kakaoLogin();"><img class="kakao_login_img"
+                            src="../../../resources/Img/Login/kakao_login_large_narrow.png"></a>
                 </div>
                 <br>
-                
                 <div class="hr-sect">또는</div><br>
-                <div id="memberlogin">
-	                <form method="post" action="loginSuccess">
-	                    <input type="text" id="mem_userid" name="mem_userid" placeholder="아이디">
+                <form name="memberlogin" action="/Login/loginOK" method="post">
+	                <div id="memberlogin">
+	                    <input type="text" id="member_id" name="mem_userid" placeholder="아이디">
 	                    <div class="br"></div>
-	                    <input type="text" id="mem_password" name="mem_password" placeholder="비밀번호">
-	                 <input type="submit" value="기존 회원 로그인">
-<!-- 	                    <input type="button" class="btn memberlogin" name="btn_login" value="기존 회원 로그인" -->
-<!-- 	                        onclick="location.href=''" /> -->
-	                </form>
-                </div>
+	                    <input type="password" id="member_pw" name="mem_password" placeholder="비밀번호">
+	                    <input type="submit" class="btn memberlogin" name="btn_login" value="기존 회원 로그인" />
+	                </div>
+                </form>
                 <div class="utilMenu">
-                    <a class="select_id" href="../../Login/findId">아이디 찾기</a>
-                    <a class="select_pw" href="../../Login/findPw">비밀번호 찾기</a>
-                    <a class="right" href="../Join/memberJoin">가입하기</a>
+                    <a class="select_id" href="findId">아이디 찾기</a><a class="select_pw" href="findPw">비밀번호 찾기</a><a class="right" href="/Join/memberJoin">가입하기</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer"></div>
+    <div class="Rightaside">
+			<jsp:include page="../Main/Rightaside.jsp" flush="false" />
+		</div>
+
+		<div class="Footer">
+			<jsp:include page="../Main/Footer.jsp" flush="false" />
+		</div>
 </div>
+
+
 <!-- 
 	<a id="kakao-login-btn"></a>
 	<script type='text/javascript'>
@@ -66,6 +76,6 @@
 			}
 		});
 	</script>
- -->
+ -->	
 </body>
 </html>

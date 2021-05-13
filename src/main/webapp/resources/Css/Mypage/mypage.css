@@ -1,16 +1,14 @@
-@charset "EUC-KR";
-
-.container{
-  display: grid;
-  grid-template-columns: 20% 1fr 20%;
-   grid-template-rows: 100px 1fr 100px;
-   grid-template-areas:
-    "header header header"
-    "aside2 section section"
-    "footer footer footer";
-  height: 100vh;
-  grid-gap: 10px;
-}
+/* .container{ */
+/*   display: grid; */
+/*   grid-template-columns: 20% 1fr 20%; */
+/*    grid-template-rows: 100px 1fr 100px; */
+/*    grid-template-areas: */
+/*     "header header header" */
+/*     "aside2 section section" */
+/*     "footer footer footer"; */
+/*   height: 100vh; */
+/*   grid-gap: 10px; */
+/* } */
 
 
 a {
@@ -24,16 +22,16 @@ li{
   padding: 5px 5px 20px 20px;
 }
 
-.header{
-  background: skyblue;
-  grid-area:header;
-}
+/* .header{ */
+/*   background: skyblue; */
+/*   grid-area:header; */
+/* } */
 
 
 .aside2 {
 	
   background: beige;
-  grid-area:aside2;
+/*   grid-area:aside2; */
 }
 
 td{
@@ -49,18 +47,18 @@ aside{
 	height:300px;
 	width:300px;
 	
-}
+/* } */
 
-.section {
+/* .section { */
 
-  background:"";
-  grid-area:section;
-}
+/*   background:""; */
+/*   grid-area:section; */
+/* } */
 
-.footer{
-  background: skyblue;
-  grid-area:footer;
-}
+/* .footer{ */
+/*   background: skyblue; */
+/*   grid-area:footer; */
+/* } */
 
 .text{
   border: 1px solid #777;

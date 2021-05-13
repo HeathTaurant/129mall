@@ -70,7 +70,7 @@ hr {
 table {
   display: inline;
   border-collapse: collapse;
-}9\-
+}
 td,
 tr {
   text-align: left;
@@ -91,12 +91,15 @@ div.find_pw {
 div.btn.ok {
   text-align: center;
 }
-input[type="button"] {
+
+input[type="button"], input#searchBtn {
+  appearance: button;
   margin-top: 20px;
   width: 70px;
   height: 30px;
   cursor: pointer;
 }
+
 div.content {
   position: relative;
   height: 300px;

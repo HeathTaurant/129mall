@@ -4,14 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../../../resources/Css/Main/Side/Main.css">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../../../resources/Css/Mypage/mypage.css"/>
-</head>
+<!-- <link rel="stylesheet" href="mypage.css"/>
+ --></head>
 <body>
 
-  <div class="container">
-   
-   <div class="section ">
+  <div class="Main container">
+   <div class="Header">
+		<jsp:include page="../Main/Header_empty.jsp" flush="false" />
+		</div>
+
+
+		<div class="Leftaside">
+			<jsp:include page="../Main/Leftaside.jsp" flush="false" />
+
+		</div>
+   <div class="Section">
     <h1>장바구니</h1>
 	<table border="">
 		<tbody align=center>
@@ -21,7 +30,7 @@
 			    <td>상품번호</td>
 			    <td colspan=2 class="fixed">상품명</td>
 				<td>수량</td>
-				<td>옵션</td>
+				<td>사이즈</td>
 				
 				<td>배송비</td>
 				<td>예상적립금</td>
@@ -32,18 +41,12 @@
 			<tr>
 			<td> <input type="checkbox" name="CartCheck"></td>
              
-             <td>112233</td>
+             <td>${itemRequestDto.it_id}</td>
 				<td colspan=2 class="fixed">
-                <figure>
-                  <img src="https://encrypted-tbn0.gstatic.com/
-                            shopping?q=tbn:ANd9GcTzmyBiXNA7EAc1C3wNefJ
-                            -RAtgQ8raDoKfN7EhpcL0vZF07Cic3L0DI13R6JLkNiMR
-                            ZgHJM6ZPPaSXT6vfeMh8CWt
-                            8S3AW56VctHJMcXU&usqp=CAE"
-                       width="200px"> 
-				<figcaption>브라운 가디건</figcaption><br>
-				</figure>
-				 33,000원<br>
+                
+				${itemRequestDto.it_name}<br>
+				색상:${itemRequestDto.it_color}<br>
+				 ${itemRequestDto.it_price}원<br>
                  </td>
 				
 				<td>
@@ -61,18 +64,13 @@
                   </td>
            
             <td>
-                  <select name="size">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    </select>
+               ${itemRequestDto.it_size}
                   </td>
 				
 				<td>2500원</td>
-				<td>330p</td>
+				<td>${itemRequestDto.it_price*0.05}</td>
                 
-                <td>35,500원</td>
+                <td>${itemRequestDto.it_price}원</td>
                 <td>
                
                 <form method="post" action="">
@@ -87,20 +85,26 @@
   <aside>
   	  
     <h2>결제정보</h2> <hr>
-       선택 상품 금액  33,000원 <br>
+       선택 상품 금액 ${itemRequestDto.it_price}원 <br>
        배송비 2500원 <br>
-       적립포인트<br>  
+       적립포인트:${itemRequestDto.it_price*itemRequestDto.it_sell_count*0.05} <br>  
        할인 금액 <br><br><br>
-       총 주문 금액  35,500원
+       총 주문 금액 ${itemRequestDto.it_price*itemRequestDto.it_sell_count}원
   
-  <form method="post" action="Pay">
+  <form method="post" action="Pay.jsp">
   <input type="submit" value="주문하기 " name="">
   
   </form>   	 
   </aside>
   
     </div>
-  
+  		<div class="Rightaside">
+			<jsp:include page="../Main/Rightaside.jsp" flush="false" />
+		</div>
+
+		<div class="Footer">
+			<jsp:include page="../Main/Footer.jsp" flush="false" />
+		</div>
    
    </div>
 	  

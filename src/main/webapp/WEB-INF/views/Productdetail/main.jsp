@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<sql:setDataSource
+	url="jdbc:mysql://localhost:3306/129mall?characterEncoding=utf8&useSSL=false"
+	driver="com.mysql.jdbc.Driver" user="musun129" password="musun129"
+	var="ds" scope="page" />
+<sql:query var="rs" dataSource="${ds}">
+select * from review order by review_id limit 0,5
+</sql:query>
+<sql:query var="count" dataSource="${ds}">
+   SELECT COUNT(*) FROM review
+</sql:query>
+<c:set value="${count.rowsByIndex[0][0]}" var="count" />
+<c:set value="${count}" var="Reviewcnt" />
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,30 +26,37 @@
 
 <script src="https://kit.fontawesome.com/6ba428731d.js"
 	crossorigin="anonymous"></script>
-<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="../../../resources/Css/Main/Side/Main.css">
 <link rel="stylesheet" type="text/css" href="../../../../resources/Css/Productdetail/asideMid.css">
 <link rel="stylesheet" type="text/css" href="../../../../resources/Css/Productdetail/section.css">
+<!-- <link rel="stylesheet" type="text/css"
+	href="../../../../resources/Css/Main/Side/Header.css">
+ -->
 
-
-
-
-
-<title>Insert title here</title>
+<title>129 Mall</title>
 </head>
 <body>
 
-	<div class="container">
-		<div class="header">header</div>
-		<div class="asideleft">
-			<ul>
-				<li><a href="#">MEN</a> <a href="#">WOMAN</a> <a href="#">KIDS</a>
-					<a href="#">SHOES</a> <a href="#">ACC</a> <a href="#">OUTLET</a> <a
-					href="#">PROMOTION</a> <a href="#">#STYLE IN SNS</a> <a href="#">DISCOVERY</a>
-				</li>
-			</ul>
+	<div class="Main container">
+
+		<div class="Header">
+			<jsp:include page="../Main/Header_empty.jsp" flush="false" />
+		</div>
+		<div class="Leftaside">
+			<jsp:include page="../Main/Leftaside.jsp" flush="false" />
+		</div>
+		
+		<div class="Rightaside">
+			<jsp:include page="../Main/Rightaside.jsp" flush="false" />
+		</div>
+		<div class="Footer">
+			<jsp:include page="../Main/Footer.jsp" flush="false" />
 		</div>
 
-		<div class="section">
+
+
+		<div class="Section">
 			<div class="section__imgs">
 				<ul>
 					<li><img
@@ -63,7 +87,6 @@
 						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-MG-26108338927749021.png/dims/resize/940x1253"
 						alt="img9"><br></li>
 				</ul>
-
 			</div>
 			<div class="section__recommandation">
 				<h2 class="section__recommandation-title">
@@ -77,97 +100,85 @@
 					<i class="fas fa-chevron-left"></i>
 				</button>
 				<ul class="slides">
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
-						alt=""></li>
-					<li><img
-						src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
-						alt=""></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-LK-26108337896257137.png/dims/resize/220x293"
+							alt=""></a></li>
+					<li><a href="#"><img
+							src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/220x293"
+							alt=""></a></li>
 				</ul>
 				<button class="recommand-right-btn">
 					<i class="fas fa-chevron-right"></i>
 				</button>
 			</div>
 
-
-
-
 			<div class=Section__move-location-btn>
 				<ul>
-					<li class="on"><a href="#">상품리뷰</a></li>
-					<li><a href="#">상품 고시정보</a></li>
-					<li><a href="#">배송/반품/교환 정보</a></li>
+					<li class="on"><a href="#target">상품리뷰</a></li>
+					<li><a href="#target2">상품 고시정보</a></li>
+					<li><a href="#target3">배송/반품/교환 정보</a></li>
 				</ul>
 			</div>
 
 
-			<div class="section__Review">
+			<div class="section__Review" id="target">
 				<h2 class=section__h2>상품리뷰</h2>
-				<strong>상품을 구매하신 고객님의 리뷰가 총 118개 있습니다.</strong><br>
+				<strong>상품을 구매하신 고객님의 리뷰가 총 <c:out value="${Reviewcnt}" />
+					개 있습니다.
+				</strong><br>
 				<p>리뷰 작성 시 온라인몰에서 사용 가능한 포인트를 적립해 드립니다. (텍스트 리뷰 300포인트, 포토리뷰
 					1,000 포인트)</p>
 				<br>
 			</div>
 			<div class="product__review">
 				<div class="product__review--top">
-					<strong class="product__review-total">TOTAL</strong> <em>118</em><p>별이미지</p>
+					<strong class="product__review-total">TOTAL</strong> <em> <c:out
+							value="${count}" /></em>
+					<p>별이미지</p>
 				</div>
 			</div>
 			<div class=product__review--mid>
 				<ul class=review-nav-btn>
-					<li><a href="#"><strong>전체(118)</strong></a></li>
-					<li><a href="#">포토리뷰(37)</a></li>
-					<li><a href="#">일반리뷰(81)</a></li>
-					<li>최근등록순</li>
+					<li><a href="#target"><strong>전체( <c:out
+									value="${count}" />)
+						</strong></a></li>
+					<li><a href="#target">포토리뷰(*)</a></li>
+					<li><a href="#target">일반리뷰(*)</a></li>
+					<li><a href="<c:url value="/review" />"><i
+							class="fas fa-hand-pointer"></i><strong>리뷰쓰기</strong></a></li>
 				</ul>
-				<div>
-				  <ul class="review-list">
-						<li>리뷰1</li>
-						<li>리뷰2</li>
-						<li>리뷰3</li>
-						<li>리뷰4</li>
-						<li>리뷰5</li>
-				  </ul>
-				</div>
-				<div class=pages>1 2 3 4 5</div>
 			</div>
+			<div class="review__content">
 
-
-
-
-			<div class="section__product-Info">
+				<jsp:include page="./reviewPage.jsp" flush="true" />
+			</div>
+			<div class="section__product-Info" id="target2">
 				<h2 class=section__h2>상품 고시정보</h2>
 				<table class="product-Info__table">
-					<colgroup>
-						<col style="width: 161px">
-						<col>
-						<col style="width: 161px">
-						<col>
-					</colgroup>
 					<tbody>
 						<tr>
 							<th>상품코드</th>
@@ -190,14 +201,10 @@
 					</tbody>
 				</table>
 			</div>
-			<h2 class="product-Info2">배송/반품/교환 정보</h2>
+			<h2 class="product-Info2" id="target3">배송/반품/교환 정보</h2>
 			<h3 class="section__h3">배송정보</h3>
 			<div>
 				<table class="product-Info__table">
-					<colgroup>
-						<col style="width: 161px">
-						<col>
-					</colgroup>
 					<tbody>
 						<tr>
 							<th>배송업체</th>
@@ -219,10 +226,6 @@
 			<h3 class="section__h3">반품정보</h3>
 			<div>
 				<table class="product-Info__table">
-					<colgroup>
-						<col style="width: 161px">
-						<col>
-					</colgroup>
 					<tbody>
 						<tr>
 							<th>반품/교환 택배비</th>
@@ -283,6 +286,8 @@
 					</tbody>
 				</table>
 			</div>
+			
+			
 
 			<h2 class=section__h2>상품문의</h2>
 			<div class="section__reception">
@@ -290,95 +295,115 @@
 					시 기재하신 이메일이나 휴대폰으로 답변을 드립니다.</p>
 				<a href="#">1:1상품문의</a>
 			</div>
-		</div>
+		
+		
 
-
+		
 		<div class="payment-options">
-			<div class="payment-options--toMakeFixed">
-				<div class="payment-option-top">
-					<ul>
-						<li class="pName" value="${pName}">덴버(DENVER) 맨투맨</li>
-						<li class="pCode">DXMT33111-MG (멜란지그레이) / 봄</li>
-						<li class="pPrice">판매가격 : 69,000원</li>
-						<br>
-						<li><i class="fas fa-won-sign"></i> 예상마일리지 : 3,450 (5%)</li>
-						<li><i class="fas fa-ticket-alt"></i> 신규 가입시 5천원 할인쿠폰</li>
-						<li><i class="fas fa-shipping-fast"></i> 공식몰 전제품 무료배송</li>
-					</ul>
-				</div>
-				<br>
-				<div class=crossLine></div>
-				<div class="payment-option-mid">
-					<ul>
-						<li class="payment-option-color"><em>색상</em>
-							<div>
-								<a href="#"><img class="color-btn-1" 
-									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/38x51"
-									alt="bk"></a> <a href="#"><img 
-									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-MG-26108338927749021.png/dims/resize/38x51"
-									alt="mg" class="color-btn-2" ></a> <a href="#"><img class="color-btn-3"
-									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-NY-26108340314701882.png/dims/resize/38x51"
-									alt="ny"></a> <a href="#"><img class="color-btn-4"
-									src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-PK-26108342383764510.png/dims/resize/38x51"
-									alt="pk"></a>
-							</div>
+			<form action="/buyNow" id="submits">
+				<div class="payment-options--toMakeFixed">
+					<div class="payment-option-top">
+						<ul>
+							<li class="pName">
+							<input type="hidden" name=it_name
+								value="덴버(DENVER) 맨투맨">덴버(DENVER) 맨투맨
 							</li>
-						<li class="payment-option-size"><em>사이즈</em>
-							<div class="btn_size">
-								<input type="radio" name=size value=90 checked="checked"> <span>90</span>
-								<input type="radio" name=size value=95> <span>95</span>
-								<input type="radio" name=size value=100> <span>100</span>
-								<input type="radio" name=size value=105> <span>105</span>
-							</div></li>
+							<li class="pCode">><input type="hidden" name=it_id value=1>DXMT33111-MG
+								(멜란지그레이) / 봄
+							</li>
+							<li class="pPrice"><input type="hidden" name=it_price
+								value=69000>판매가격 : 69,000원<br></li>
 
-						<li class="payment-option-quantity"><em>수량</em>
-							<div class="btn-qty">
-								<button type="button" class="changeQty-minus">
-									<i class="fas fa-minus"></i>
-								</button>
-								<input type="number" class="changeQty-num" value="1" size="5"
-									min="1" max="9999" width="20">
-								<button type="button" class="changeQty-plus">
-									<i class="fas fa-plus"></i>
-								</button>
-							</div></li>
+							<li><i class="fas fa-won-sign"></i> 예상마일리지 : 3,450 (5%)</li>
+							<li><i class="fas fa-ticket-alt"></i> 신규 가입시 5천원 할인쿠폰</li>
+							<li><i class="fas fa-shipping-fast"></i> 공식몰 전제품 무료배송</li>
+						</ul>
+					</div>
+					<br>
+					<div class=crossLine></div>
+					<div class="payment-option-mid">
+						<ul>
+							<li class="payment-option-color"><em>색상</em>
+								<div>
+									<img class="color-btn-1"
+										src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-BK-26108336734006369.png/dims/resize/38x51"
+										alt="bk"> <img class="color-btn-2"
+										src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-MG-26108338927749021.png/dims/resize/38x51"
+										alt="mg" class="color-btn-2"> <img class="color-btn-3"
+										src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-NY-26108340314701882.png/dims/resize/38x51"
+										alt="ny"> <img class="color-btn-4"
+										src="https://static.discovery-expedition.com/images/goods/thnail/x/20210108/DXMT33111-PK-26108342383764510.png/dims/resize/38x51"
+										alt="pk"> <input type="hidden" name=it_color value="블랙">
+								</div></li>
+							<li class="payment-option-size"><em>사이즈</em>
+								<div class="btn_size">
+									<input type="radio" name=it_size value=90 checked="checked">
+									<span>90</span> <input type="radio" name=it_size value=95>
+									<span>95</span> <input type="radio" name=it_size value=100>
+									<span>100</span> <input type="radio" name=it_size value=105>
+									<span>105</span> <input type="hidden" name="it_size"
+										value="it_size">
+								</div></li>
+							<li class="payment-option-quantity"><em>수량</em>
+								<div class="btn-qty">
+									<button type="button" class="changeQty-minus">
+										<i class="fas fa-minus"></i>
+									</button>
+									<input type="number" class="changeQty-num" value="1" size="5"
+										min="1" max="9999" width="20" name="it_sell_count">
+									<button type="button" class="changeQty-plus">
+										<i class="fas fa-plus"></i>
+									</button>
+								</div></li>
 
-						<li class="payment-option-delivery"><em>배송</em>
-							<div>
-								<form>
+							<li class="payment-option-delivery"><em>배송</em>
+								<div>
 									<input type="radio" id="deliver1" name="deliver"
 										value="deliver" checked="checked"> <label
 										for="deliver1">택배(무료배송)</label> <input type="radio"
 										id="deliver2" name="deliver" value="pickUp"> <label
 										for="deliver2">매장픽업</label>
-								</form>
-							</div></li>
+								</div></li>
 
-					</ul>
-					<div class="payment-option-bottom">
-						<div class="buynow_btn">
-							<a href="#">buynow</a>
-						</div>
-						<div class=nPay_btn>
-							<a class="addTocart" href="#">add to Cart Npay</a> <a
-								class="Npay_btn" href="#">N Pay</a>
-						</div>
-						<div class="btn_go_review">
-							<a href="#"> 상품리뷰(119)</a>
-						</div>
+						</ul>
+						<div class="payment-option-bottom">
+							<div class="buynow_btn" id="buyNow">
+								<input type="submit" value="buyNow" />
+							</div>
 
+							<div class=nPay_btn>
+								<a class="addTocart">add to Cart Npay</a> 
+									
+								<a class="Npay_btn" href="#">N Pay</a>
+							</div>
+							<div class="btn_go_review">
+								<a href="#target"> 상품리뷰(<c:out value="${count}" />)
+								</a>
+							</div>
+						</div>
 					</div>
 				</div>
-
-			</div>
+			</form>
 		</div>
-		<div class="asideright">aside</div>
-
-		<div class="footer">footer</div>
+		
+		
+		
 	</div>
-	<script type="text/javascript" src="../../../../resources/Js/Productdetail/multy-Slide.js"></script>
-	<script type="text/javascript" src="../../../../resources/Js/Productdetail/quantity-btn.js"></script>
-	<script type="text/javascript" src="../../../../resources/Js/Productdetail/color-btn.js"></script>
-	<script type="text/javascript" src="../../../../resources/Js/Productdetail/review-nav-btn.js"></script>
+
+
+	</div>
+			
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/multy-Slide.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/quantity-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/color-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/review-nav-btn.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/Review-Img.js"></script>
+	<script type="text/javascript"
+		src="../../../resources/Js/Productdetail/submit-btn.js"></script>
 </body>
 </html>

@@ -9,12 +9,14 @@ li {
   list-style: none;
 }
 
+
 .slidebox {
-  max-width: 1000px;
+  max-width: 1400px;
   width: 100%;
-  margin: 0 auto;
+  margin: 30px auto;
   overflow: hidden;
   position: relative;
+  border-radius: 30px;
 }
 
 .slidebox img {

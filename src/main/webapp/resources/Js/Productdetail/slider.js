@@ -1,7 +1,13 @@
-/**
+/*/**
  * 
  */
-var slide_index = 1;
+////////////////////////////////////
+//필요없는 Javascript 공부용으로 가져온것//
+////////////////////////////////////
+
+
+
+/*var slide_index = 1;
 displaySlides(slide_index);
 function nextSlide(n) {
 	displaySlides(slide_index += n);
@@ -18,4 +24,4 @@ function displaySlides(n) {
 		slides[i].style.display = "none";
 	}
 	slides[slide_index - 1].style.display = "block";
-}   
+}   */

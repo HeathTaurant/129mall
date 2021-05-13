@@ -71,5 +71,18 @@ function slideshow(index) {
     setTimeout(function () {
       slidelist.classList.add("animated");
     }, 600);
+  } 
+}
+
+let timer = undefined;
+
+function autoSlide() {
+  if (timer === undefined) {
+    timer = setInterval(function () {
+  	  console.log(currentIdx);
+  	  slideshow(currentIdx + 1);
+    }, 1500);
   }
 }
+
+autoSlide();
